@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รักเบบี๋ที่สุดเลย</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #FCEEE2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+            transform-origin: center;
+            animation: fadeOut 1.5s ease-out;
+        }
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: inherit;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(90deg);
+            left: 10px;
+            bottom: -10px;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-60vh);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+    </style>
+    <script>
+        function getRandomColor() {
+            const colors = ["#FF6B6B", "#FFB6C1", "#FF69B4", "#FFC0CB", "#DC143C"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function getRandomRotation() {
+            const rotations = [0, -15, 15]; // ตั้งตรง, เอียงซ้าย, เอียงขวา
+            return rotations[Math.floor(Math.random() * rotations.length)];
+        }
+
+        function createFirework() {
+            const firework = document.createElement("div");
+            firework.classList.add("heart");
+            
+            // สุ่มสีและการเอียง
+            firework.style.backgroundColor = getRandomColor();
+            const randomRotation = getRandomRotation();
+            firework.style.transform = `rotate(${randomRotation}deg)`;
+
+            firework.style.left = `${Math.random() * window.innerWidth}px`;
+            firework.style.top = `${window.innerHeight}px`;
+            document.body.appendChild(firework);
+
+            // ตั้งค่าให้พลุขึ้นไปข้างบน
+            firework.style.animation = "rise 1s ease-out forwards";
+
+            // ตั้งค่าให้แสดงรูปหัวใจตอนแตก
+            setTimeout(() => {
+                firework.style.animation = "fadeOut 1s ease-out forwards";
+            }, 1000);
+
+            // ลบพลุออกหลังการแสดงผล
+            setTimeout(() => {
+                firework.remove();  
+            }, 2000);
+        }
+
+        // สร้างพลุแบบวนลูป
+        setInterval(createFirework, 500);
+    </script>
+</head>
+<body>
+    <h1>เย่่่่ รักเบบี๋ที่สุดเลย</h1>
+</body>
+</html>

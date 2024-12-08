@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ขอโทษนะเบบี๋</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FCEEE2;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .btn-left {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-left:hover {
+            background-color: #d32f2f;
+        }
+        .btn-right {
+            background-color: #4caf50;
+            color: white;
+        }
+        .btn-right:hover {
+            background-color: #388e3c;
+        }
+    </style>
+    <script>
+        let notForgiveCount = 0;
+        function notForgive() {
+            if (notForgiveCount === 0) {
+                alert("ระบบขัดข้อง");
+                notForgiveCount++;
+            } else {
+                alert("จะไม่ให้อภัยกันจริงๆ อ๋อ🥺");
+            }
+        }
+        function forgive() {
+            window.location.href = "page2.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>ขอโทษนะเบบี๋ ดีกันนะค้าบ🥺🥺</h1>
+        <button class="btn-left" onclick="notForgive()">ไม่ให้อภัย</button>
+        <button class="btn-right" onclick="forgive()">ให้อภัย</button>
+    </div>
+</body>
+</html>
